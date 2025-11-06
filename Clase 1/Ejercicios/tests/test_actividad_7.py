@@ -6,6 +6,13 @@ el 15% de propina y el total a pagar.
 """
 
 import unittest
+
+def get_actividad_path():
+    """Obtiene la ruta al archivo de actividad"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    actividades_dir = os.path.join(script_dir, '..', 'actividades')
+    return os.path.join(actividades_dir, 'actividad_7.py')
+
 from unittest.mock import patch
 from io import StringIO
 
@@ -17,7 +24,7 @@ class TestActividad7(unittest.TestCase):
     def test_propina_monto_100(self, mock_input, mock_stdout):
         """Prueba con monto 100 -> propina 15, total 115"""
         try:
-            with open('actividad_7.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -35,7 +42,7 @@ class TestActividad7(unittest.TestCase):
     def test_propina_monto_200(self, mock_input, mock_stdout):
         """Prueba con monto 200 -> propina 30, total 230"""
         try:
-            with open('actividad_7.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -53,7 +60,7 @@ class TestActividad7(unittest.TestCase):
     def test_propina_monto_50(self, mock_input, mock_stdout):
         """Prueba con monto 50 -> propina 7.5, total 57.5"""
         try:
-            with open('actividad_7.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -72,7 +79,7 @@ class TestActividad7(unittest.TestCase):
     def test_solicita_monto(self, mock_input):
         """Verifica que se solicite el monto"""
         try:
-            with open('actividad_7.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             
@@ -85,7 +92,7 @@ class TestActividad7(unittest.TestCase):
     def test_muestra_propina_y_total(self, mock_input, mock_stdout):
         """Verifica que se muestren tanto la propina como el total"""
         try:
-            with open('actividad_7.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -103,4 +110,5 @@ if __name__ == '__main__':
     print("TESTS PARA ACTIVIDAD 7: Calculadora de Propinas")
     print("=" * 60)
     unittest.main(verbosity=2)
+
 

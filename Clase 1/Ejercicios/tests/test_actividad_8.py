@@ -7,6 +7,13 @@ Estos tests verifican que tu programa use el módulo math para:
 """
 
 import unittest
+
+def get_actividad_path():
+    """Obtiene la ruta al archivo de actividad"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    actividades_dir = os.path.join(script_dir, '..', 'actividades')
+    return os.path.join(actividades_dir, 'actividad_8.py')
+
 from unittest.mock import patch
 from io import StringIO
 import math
@@ -19,7 +26,7 @@ class TestActividad8(unittest.TestCase):
     def test_raiz_y_pi(self, mock_input, mock_stdout):
         """Prueba con raíz de 16 y 2*pi"""
         try:
-            with open('actividad_8.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -38,7 +45,7 @@ class TestActividad8(unittest.TestCase):
     def test_raiz_9_y_1pi(self, mock_input, mock_stdout):
         """Prueba con raíz de 9 y 1*pi"""
         try:
-            with open('actividad_8.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -57,7 +64,7 @@ class TestActividad8(unittest.TestCase):
     def test_raiz_25_y_3pi(self, mock_input, mock_stdout):
         """Prueba con raíz de 25 y 3*pi"""
         try:
-            with open('actividad_8.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -75,7 +82,7 @@ class TestActividad8(unittest.TestCase):
     def test_solicita_dos_numeros(self, mock_input):
         """Verifica que se soliciten dos números"""
         try:
-            with open('actividad_8.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             
@@ -87,7 +94,7 @@ class TestActividad8(unittest.TestCase):
     def test_importa_modulo_math(self):
         """Verifica que se importe el módulo math"""
         try:
-            with open('actividad_8.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             
             self.assertIn('import math', code, "Debe importar el módulo math")
@@ -100,4 +107,5 @@ if __name__ == '__main__':
     print("TESTS PARA ACTIVIDAD 8: Explorando el Módulo math")
     print("=" * 60)
     unittest.main(verbosity=2)
+
 

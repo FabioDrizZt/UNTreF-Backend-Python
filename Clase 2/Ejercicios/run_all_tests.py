@@ -1,24 +1,38 @@
 """
-Script para ejecutar todos los tests de las actividades
-========================================================
+Script para ejecutar todos los tests de Estructuras Condicionales
+===================================================================
 
-Este script ejecuta automáticamente todos los tests para las 10 actividades.
+Este script ejecuta automáticamente todos los tests para los 9 ejercicios.
 Los alumnos pueden usar este script para verificar todas sus soluciones de una vez.
 
 Uso:
-    python run_all_tests.py
-    python run_all_tests.py 1    # Solo actividad 1
+    python run_all_tests.py              # Ejecutar todos los tests
+    python run_all_tests.py 1            # Ejecutar solo el ejercicio 1
+    python run_all_tests.py 5            # Ejecutar solo el ejercicio 5
 """
 
 import unittest
 import sys
 import os
 
+# Mapeo de números a nombres de archivos
+EJERCICIOS = {
+    1: 'NumeroPositivoNegativo',
+    2: 'InstitucionEducacion',
+    3: 'OrdenarValores',
+    4: 'TipoTriangulo',
+    5: 'FechaNombreMes',
+    6: 'SignoZodiacal',
+    7: 'CostoInternacion',
+    8: 'TiendaDescuento',
+    9: 'CalificacionEstudiante'
+}
+
 def run_all_tests():
-    """Ejecuta todos los tests de las actividades."""
+    """Ejecuta todos los tests de los ejercicios."""
     
     print("=" * 70)
-    print("EJECUTANDO TODOS LOS TESTS DE LAS ACTIVIDADES")
+    print("EJECUTANDO TODOS LOS TESTS DE ESTRUCTURAS CONDICIONALES")
     print("=" * 70)
     print()
     
@@ -27,7 +41,7 @@ def run_all_tests():
     os.chdir(script_dir)
     
     # Agregar las carpetas al path
-    sys.path.insert(0, os.path.join(script_dir, 'actividades'))
+    sys.path.insert(0, os.path.join(script_dir, 'ejercicios'))
     sys.path.insert(0, os.path.join(script_dir, 'tests'))
     
     # Descubrir todos los tests en la carpeta tests
@@ -54,15 +68,16 @@ def run_all_tests():
     
     if result.wasSuccessful():
         print("✅ ¡FELICITACIONES! Todos los tests pasaron correctamente.")
-        print("   Has completado exitosamente todas las actividades.")
+        print("   Has completado exitosamente todos los ejercicios de")
+        print("   Estructuras Condicionales.")
     else:
         print("⚠️  Algunos tests no pasaron.")
         print("   Revisa los mensajes de error arriba para ver qué necesitas corregir.")
         print()
         if result.failures:
-            print(f"   Actividades con tests fallidos: {len(result.failures)}")
+            print(f"   Ejercicios con tests fallidos: {len(result.failures)}")
         if result.errors:
-            print(f"   Actividades con errores: {len(result.errors)}")
+            print(f"   Ejercicios con errores: {len(result.errors)}")
     
     print("=" * 70)
     print()
@@ -71,10 +86,18 @@ def run_all_tests():
     return 0 if result.wasSuccessful() else 1
 
 
-def run_specific_test(activity_number):
-    """Ejecuta el test de una actividad específica."""
+def run_specific_test(exercise_number):
+    """Ejecuta el test de un ejercicio específico."""
     
-    test_file = f'test_actividad_{activity_number}.py'
+    if exercise_number not in EJERCICIOS:
+        print(f"❌ Error: El número de ejercicio debe estar entre 1 y {len(EJERCICIOS)}")
+        print("Ejercicios disponibles:")
+        for num, nombre in EJERCICIOS.items():
+            print(f"  {num}. {nombre}")
+        return 1
+    
+    exercise_name = EJERCICIOS[exercise_number]
+    test_file = f'test_{exercise_name}.py'
     test_path = os.path.join('tests', test_file)
     
     if not os.path.exists(test_path):
@@ -82,13 +105,13 @@ def run_specific_test(activity_number):
         return 1
     
     print("=" * 70)
-    print(f"EJECUTANDO TESTS PARA ACTIVIDAD {activity_number}")
+    print(f"EJECUTANDO TESTS PARA EJERCICIO {exercise_number}: {exercise_name}")
     print("=" * 70)
     print()
     
     # Agregar las carpetas al path
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    sys.path.insert(0, os.path.join(script_dir, 'actividades'))
+    sys.path.insert(0, os.path.join(script_dir, 'ejercicios'))
     sys.path.insert(0, os.path.join(script_dir, 'tests'))
     
     loader = unittest.TestLoader()
@@ -98,9 +121,9 @@ def run_specific_test(activity_number):
     
     print()
     if result.wasSuccessful():
-        print(f"✅ ¡Bien hecho! La actividad {activity_number} pasó todos los tests.")
+        print(f"✅ ¡Bien hecho! El ejercicio {exercise_number} pasó todos los tests.")
     else:
-        print(f"⚠️  La actividad {activity_number} tiene tests que no pasaron.")
+        print(f"⚠️  El ejercicio {exercise_number} tiene tests que no pasaron.")
         print("   Revisa los mensajes de error arriba.")
     print()
     
@@ -108,20 +131,15 @@ def run_specific_test(activity_number):
 
 
 if __name__ == '__main__':
-    # Si se proporciona un número de actividad, ejecutar solo ese test
+    # Si se proporciona un número de ejercicio, ejecutar solo ese test
     if len(sys.argv) > 1:
         try:
-            activity_num = int(sys.argv[1])
-            if 1 <= activity_num <= 10:
-                sys.exit(run_specific_test(activity_num))
-            else:
-                print("❌ Error: El número de actividad debe estar entre 1 y 10")
-                print("Uso: python run_all_tests.py [número_actividad]")
-                print("Ejemplo: python run_all_tests.py 1")
-                sys.exit(1)
+            exercise_num = int(sys.argv[1])
+            sys.exit(run_specific_test(exercise_num))
         except ValueError:
             print("❌ Error: Debes proporcionar un número válido")
-            print("Uso: python run_all_tests.py [número_actividad]")
+            print(f"Uso: python run_all_tests.py [1-{len(EJERCICIOS)}]")
+            print("Ejemplo: python run_all_tests.py 1")
             sys.exit(1)
     else:
         # Ejecutar todos los tests

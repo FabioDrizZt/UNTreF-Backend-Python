@@ -11,6 +11,12 @@ from io import StringIO
 import sys
 import os
 
+def get_actividad_path():
+    """Obtiene la ruta al archivo de actividad"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    actividades_dir = os.path.join(script_dir, '..', 'actividades')
+    return os.path.join(actividades_dir, 'actividad_1.py')
+
 class TestActividad1(unittest.TestCase):
     """Tests para verificar la Actividad 1"""
     
@@ -20,7 +26,7 @@ class TestActividad1(unittest.TestCase):
         """Prueba con el nombre 'Juan'"""
         # Ejecutar el código del alumno
         try:
-            with open('actividad_1.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -37,7 +43,7 @@ class TestActividad1(unittest.TestCase):
     def test_saludo_nombre_compuesto(self, mock_input, mock_stdout):
         """Prueba con nombre compuesto 'María José'"""
         try:
-            with open('actividad_1.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -51,7 +57,7 @@ class TestActividad1(unittest.TestCase):
     def test_saludo_contiene_texto(self, mock_input, mock_stdout):
         """Verifica que haya un saludo personalizado"""
         try:
-            with open('actividad_1.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -69,4 +75,5 @@ if __name__ == '__main__':
     print("TESTS PARA ACTIVIDAD 1: Mensaje de Bienvenida")
     print("=" * 60)
     unittest.main(verbosity=2)
+
 

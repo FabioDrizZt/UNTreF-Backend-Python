@@ -15,6 +15,11 @@ Cada archivo `actividad_X.py` contiene:
 ### Paso 2: Ejecutar tu Programa
 
 ```bash
+# Desde la raíz de Ejercicios/
+python actividades/actividad_1.py
+
+# O entrando a la carpeta
+cd actividades
 python actividad_1.py
 ```
 
@@ -26,7 +31,7 @@ Una vez que tu programa funciona, verifica que esté correcto:
 
 ```bash
 # Verificar una actividad específica
-python -m unittest test_actividad_1.py -v
+python run_all_tests.py 1
 
 # O ejecutar todos los tests
 python run_all_tests.py
@@ -155,11 +160,11 @@ Ejercicios/
 2. **Escribe tu código** en ese mismo archivo
 3. **Ejecuta tu programa** para probarlo manualmente
    ```bash
-   python actividad_1.py
+   python actividades/actividad_1.py
    ```
 4. **Si funciona bien**, verifica con los tests:
    ```bash
-   python test_actividad_1.py
+   python run_all_tests.py 1
    ```
 5. **Si los tests fallan**, lee el mensaje de error y corrige
 6. **Repite** hasta que todos los tests pasen ✅
@@ -170,7 +175,7 @@ Ejercicios/
 ## ❓ Preguntas Frecuentes
 
 **P: ¿Debo modificar los archivos de tests?**  
-R: No. Solo debes modificar los archivos `actividad_X.py`. Los tests ya están listos para usarse.
+R: No. Solo debes modificar los archivos en la carpeta `actividades/`. Los tests en la carpeta `tests/` ya están listos para usarse.
 
 **P: ¿Es obligatorio pasar los tests?**  
 R: Depende de tu profesor. Los tests son una herramienta para verificar que tu código es correcto. Si tu programa funciona bien manualmente y pasa los tests, ¡estás seguro de que está correcto!
@@ -205,12 +210,13 @@ Al completar estas actividades, habrás practicado:
 ## 🚀 ¡Comienza Ahora!
 
 ```bash
-# 1. Abre actividad_1.py y escribe tu código
+# 1. Abre actividades/actividad_1.py y escribe tu código
+
 # 2. Ejecuta tu programa
-python actividad_1.py
+python actividades/actividad_1.py
 
 # 3. Verifica que esté correcto
-python test_actividad_1.py
+python run_all_tests.py 1
 
 # 4. ¡Continúa con la siguiente!
 ```

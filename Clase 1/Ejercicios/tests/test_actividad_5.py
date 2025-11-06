@@ -6,6 +6,13 @@ el año de nacimiento basado en la edad ingresada.
 """
 
 import unittest
+
+def get_actividad_path():
+    """Obtiene la ruta al archivo de actividad"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    actividades_dir = os.path.join(script_dir, '..', 'actividades')
+    return os.path.join(actividades_dir, 'actividad_5.py')
+
 from unittest.mock import patch
 from io import StringIO
 import datetime
@@ -18,7 +25,7 @@ class TestActividad5(unittest.TestCase):
     def test_calculo_edad_30(self, mock_input, mock_stdout):
         """Prueba con edad 30"""
         try:
-            with open('actividad_5.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -40,7 +47,7 @@ class TestActividad5(unittest.TestCase):
     def test_calculo_edad_20(self, mock_input, mock_stdout):
         """Prueba con edad 20"""
         try:
-            with open('actividad_5.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -57,7 +64,7 @@ class TestActividad5(unittest.TestCase):
     def test_edad_cero(self, mock_input, mock_stdout):
         """Prueba con edad 0 (recién nacido)"""
         try:
-            with open('actividad_5.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -73,7 +80,7 @@ class TestActividad5(unittest.TestCase):
     def test_solicita_edad(self, mock_input):
         """Verifica que se solicite la edad"""
         try:
-            with open('actividad_5.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             
@@ -87,4 +94,5 @@ if __name__ == '__main__':
     print("TESTS PARA ACTIVIDAD 5: Cálculo de Año de Nacimiento")
     print("=" * 60)
     unittest.main(verbosity=2)
+
 

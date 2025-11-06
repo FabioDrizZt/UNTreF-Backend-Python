@@ -6,6 +6,13 @@ de presentación con formato multilínea.
 """
 
 import unittest
+
+def get_actividad_path():
+    """Obtiene la ruta al archivo de actividad"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    actividades_dir = os.path.join(script_dir, '..', 'actividades')
+    return os.path.join(actividades_dir, 'actividad_9.py')
+
 from unittest.mock import patch
 from io import StringIO
 
@@ -17,7 +24,7 @@ class TestActividad9(unittest.TestCase):
     def test_tarjeta_completa(self, mock_input, mock_stdout):
         """Prueba con datos completos"""
         try:
-            with open('actividad_9.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -34,7 +41,7 @@ class TestActividad9(unittest.TestCase):
     def test_tarjeta_diferentes_datos(self, mock_input, mock_stdout):
         """Prueba con diferentes datos"""
         try:
-            with open('actividad_9.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -49,7 +56,7 @@ class TestActividad9(unittest.TestCase):
     def test_solicita_tres_datos(self, mock_input):
         """Verifica que se soliciten tres datos"""
         try:
-            with open('actividad_9.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             
@@ -63,7 +70,7 @@ class TestActividad9(unittest.TestCase):
     def test_formato_multilinea(self, mock_input, mock_stdout):
         """Verifica que la tarjeta tenga formato con varias líneas"""
         try:
-            with open('actividad_9.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -80,7 +87,7 @@ class TestActividad9(unittest.TestCase):
     def test_tarjeta_simulada(self, mock_input, mock_stdout):
         """Verifica que simule una tarjeta (con algún formato visual)"""
         try:
-            with open('actividad_9.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -103,4 +110,5 @@ if __name__ == '__main__':
     print("TESTS PARA ACTIVIDAD 9: Generador de Tarjetas de Presentación")
     print("=" * 60)
     unittest.main(verbosity=2)
+
 

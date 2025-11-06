@@ -8,6 +8,13 @@ Estos tests verifican que tu programa:
 """
 
 import unittest
+
+def get_actividad_path():
+    """Obtiene la ruta al archivo de actividad"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    actividades_dir = os.path.join(script_dir, '..', 'actividades')
+    return os.path.join(actividades_dir, 'actividad_10.py')
+
 from unittest.mock import patch, MagicMock
 from io import StringIO
 
@@ -17,7 +24,7 @@ class TestActividad10(unittest.TestCase):
     def test_importa_modulo_os(self):
         """Verifica que se importe el módulo os"""
         try:
-            with open('actividad_10.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             
             self.assertIn('import os', code, "Debe importar el módulo os")
@@ -30,7 +37,7 @@ class TestActividad10(unittest.TestCase):
     def test_limpia_pantalla_y_saluda(self, mock_input, mock_stdout, mock_os_system):
         """Verifica que limpie la pantalla y salude"""
         try:
-            with open('actividad_10.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             
@@ -56,7 +63,7 @@ class TestActividad10(unittest.TestCase):
     def test_saludo_con_nombre(self, mock_input, mock_stdout, mock_os_system):
         """Verifica que el saludo incluya el nombre ingresado"""
         try:
-            with open('actividad_10.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             
@@ -71,7 +78,7 @@ class TestActividad10(unittest.TestCase):
     def test_solicita_nombre(self, mock_input, mock_os_system):
         """Verifica que se solicite el nombre del usuario"""
         try:
-            with open('actividad_10.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             
@@ -86,7 +93,7 @@ class TestActividad10(unittest.TestCase):
     def test_limpia_antes_de_solicitar(self, mock_input, mock_stdout, mock_os_system):
         """Verifica que limpie la pantalla (idealmente antes de solicitar el nombre)"""
         try:
-            with open('actividad_10.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             
@@ -102,4 +109,5 @@ if __name__ == '__main__':
     print("TESTS PARA ACTIVIDAD 10: Limpieza de Pantalla con Módulo os")
     print("=" * 60)
     unittest.main(verbosity=2)
+
 

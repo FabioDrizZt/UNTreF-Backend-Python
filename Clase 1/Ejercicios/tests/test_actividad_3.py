@@ -6,6 +6,13 @@ multiplicación y división con dos números decimales.
 """
 
 import unittest
+
+def get_actividad_path():
+    """Obtiene la ruta al archivo de actividad"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    actividades_dir = os.path.join(script_dir, '..', 'actividades')
+    return os.path.join(actividades_dir, 'actividad_3.py')
+
 from unittest.mock import patch
 from io import StringIO
 
@@ -17,7 +24,7 @@ class TestActividad3(unittest.TestCase):
     def test_operaciones_basicas(self, mock_input, mock_stdout):
         """Prueba con 10 y 5"""
         try:
-            with open('actividad_3.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -35,7 +42,7 @@ class TestActividad3(unittest.TestCase):
     def test_operaciones_decimales(self, mock_input, mock_stdout):
         """Prueba con números decimales 8.5 y 2.5"""
         try:
-            with open('actividad_3.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -50,7 +57,7 @@ class TestActividad3(unittest.TestCase):
     def test_solicita_dos_numeros(self, mock_input):
         """Verifica que se soliciten dos números"""
         try:
-            with open('actividad_3.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             
@@ -63,7 +70,7 @@ class TestActividad3(unittest.TestCase):
     def test_muestra_cuatro_operaciones(self, mock_input, mock_stdout):
         """Verifica que se muestren las 4 operaciones"""
         try:
-            with open('actividad_3.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -80,4 +87,5 @@ if __name__ == '__main__':
     print("TESTS PARA ACTIVIDAD 3: Operaciones Matemáticas Básicas")
     print("=" * 60)
     unittest.main(verbosity=2)
+
 

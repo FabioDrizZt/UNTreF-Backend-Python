@@ -9,6 +9,13 @@ Estos tests verifican que tu programa muestre:
 """
 
 import unittest
+
+def get_actividad_path():
+    """Obtiene la ruta al archivo de actividad"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    actividades_dir = os.path.join(script_dir, '..', 'actividades')
+    return os.path.join(actividades_dir, 'actividad_4.py')
+
 from unittest.mock import patch
 from io import StringIO
 
@@ -20,7 +27,7 @@ class TestActividad4(unittest.TestCase):
     def test_manipulacion_texto_simple(self, mock_input, mock_stdout):
         """Prueba con 'Hola mundo'"""
         try:
-            with open('actividad_4.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -44,7 +51,7 @@ class TestActividad4(unittest.TestCase):
     def test_manipulacion_texto_largo(self, mock_input, mock_stdout):
         """Prueba con 'Python es genial'"""
         try:
-            with open('actividad_4.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -69,7 +76,7 @@ class TestActividad4(unittest.TestCase):
     def test_una_palabra(self, mock_input, mock_stdout):
         """Prueba con una sola palabra 'Test'"""
         try:
-            with open('actividad_4.py', 'r', encoding='utf-8') as f:
+            with open(get_actividad_path(), 'r', encoding='utf-8') as f:
                 code = f.read()
             exec(code, {'__name__': '__main__'})
             output = mock_stdout.getvalue()
@@ -86,4 +93,5 @@ if __name__ == '__main__':
     print("TESTS PARA ACTIVIDAD 4: Manipulación de Texto")
     print("=" * 60)
     unittest.main(verbosity=2)
+
 
