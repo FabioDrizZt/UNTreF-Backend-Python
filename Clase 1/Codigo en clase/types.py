@@ -36,3 +36,9 @@ print(type("""Hola"""))
 print("NoneType:")
 print(type(None))
 
+# Para saber si coincide con un tipo de dato
+if type(1) == int:
+    print("Es un int")
+
+if isinstance(1, int):
+    print("Es un int")

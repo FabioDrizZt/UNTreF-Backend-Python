@@ -12,6 +12,7 @@ print(type(edad))
 # No realiza conversiones de tipo automatica
 
 # print(10+"2")
+print(f"Mi edad es {edad}")
 
 # f-strings (literal de cadena de formato)
 # https://docs.python.org/3/reference/lexical_analysis.html#f-strings
