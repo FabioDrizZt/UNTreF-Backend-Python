@@ -42,3 +42,21 @@ if type(1) == int:
 
 if isinstance(1, int):
     print("Es un int")
+    
+print("list:")
+lista = [1, 2, 3]
+print(type(lista))
+
+print("tuple:")
+tupla = (1, 2, 3)
+print(type(tupla))
+
+print("dictionary:")
+diccionario = {"key": "value"}
+diccionario["key2"] = "value2"
+print(type(diccionario))
+
+print("set:")
+seta = {1, 2, 3}
+print(type(seta))
+
