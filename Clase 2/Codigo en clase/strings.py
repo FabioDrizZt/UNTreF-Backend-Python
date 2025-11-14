@@ -39,9 +39,9 @@ print(a[2])
 print(a[3])
 print(a[4])
 
-print(a[-1])
-print(a[-2])
-print(a[-3])
+print(a[-1]) # último caracter o
+print(a[-2]) # penúltimo caracter d
+print(a[-3]) # antepenúltimo caracter n
 print(a[-4])
 print(a[-5])
 
