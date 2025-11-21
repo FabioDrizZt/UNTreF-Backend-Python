@@ -12,7 +12,8 @@ Python/
 ├── Clase 2/          # Control de Flujo: Condicionales, Operadores, Strings
 ├── Clase 3/          # Funciones: Definición, Parámetros, Lambda, Manejo de Excepciones
 ├── Clase 4/          # Estructuras de Datos: Listas y Tuplas
-└── Clase 5/          # Bucles: For, While, List Comprehension
+├── Clase 5/          # Bucles: For, While, List Comprehension
+└── Clase 6/          # Diccionarios, Entornos Virtuales, Importaciones y JSON
 ```
 
 Cada clase contiene:
@@ -27,8 +28,11 @@ Al completar este curso, habrás aprendido:
 - ✅ **Control de Flujo**: Condicionales (`if/else`), operadores lógicos y de comparación
 - ✅ **Funciones**: Definición, parámetros, valores por defecto, funciones lambda
 - ✅ **Manejo de Errores**: Try-except, excepciones personalizadas
-- ✅ **Estructuras de Datos**: Listas, tuplas, métodos y operaciones
+- ✅ **Estructuras de Datos**: Listas, tuplas, diccionarios, métodos y operaciones
 - ✅ **Bucles**: `for`, `while`, list comprehension, control de flujo en bucles
+- ✅ **Entornos Virtuales**: Creación y uso de venv para gestionar dependencias
+- ✅ **Importaciones**: Módulos propios y externos, gestión de paquetes
+- ✅ **Trabajo con JSON**: Serialización y deserialización de datos
 - ✅ **Programación Práctica**: Resolución de problemas reales con Python
 
 ## 🚀 Cómo Empezar
@@ -84,6 +88,11 @@ python --version
 
 - 📁 [Código en Clase](./Clase%205/Codigo%20en%20clase/README.md)
 - 📁 [Ejercicios](./Clase%205/Ejercicios/README.md)
+
+### [Clase 6: Diccionarios, Entornos Virtuales e Importaciones](./Clase%206/README.md)
+**Temas**: Diccionarios, listas de diccionarios, entornos virtuales (venv), importaciones de módulos, trabajo con JSON
+
+- 📁 [Código en Clase](./Clase%206/)
 
 ## 🧪 Sistema de Tests
 

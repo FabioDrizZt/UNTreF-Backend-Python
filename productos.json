@@ -1,0 +1,32 @@
+[
+    {
+        "nombre": "iPhone",
+        "precio": 1000.52,
+        "stock": 15,
+        "wifi": true
+    },
+    {
+        "nombre": "iPad",
+        "precio": 2050.52,
+        "stock": 10,
+        "wifi": true
+    },
+    {
+        "nombre": "Macbook Pro",
+        "precio": 10000.52,
+        "stock": 20,
+        "wifi": false
+    },
+    {
+        "nombre": "Macbook Air",
+        "precio": 10000.52,
+        "stock": 20,
+        "wifi": false
+    },
+    {
+        "nombre": "iPod",
+        "precio": 1000.52,
+        "stock": 15,
+        "wifi": true
+    }
+]
