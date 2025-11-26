@@ -1,0 +1,23 @@
+# Para crear un entorno virtual de Python, ejecuta:
+# python -m venv .venv
+
+# Para activar el entorno virtual, ejecuta: 
+# source .venv\Scripts\activate
+
+# Para desactivar el entorno virtual, ejecuta:
+# .venv\Scripts\deactivate
+
+# Para generar este archivo, ejecuta:
+# pip freeze > requirements.txt
+
+# Para instalar todas las dependencias, ejecuta:
+# pip install -r requirements.txt
+
+# Conector oficial de MySQL para Python
+mysql-connector-python>=8.0.33
+
+# Manejo de variables de entorno desde archivo .env
+python-dotenv>=1.0.0
+
+# Formateo de tablas para presentación de datos
+tabulate>=0.9.0
