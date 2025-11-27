@@ -13,7 +13,8 @@ Python/
 ├── Clase 3/          # Funciones: Definición, Parámetros, Lambda, Manejo de Excepciones
 ├── Clase 4/          # Estructuras de Datos: Listas y Tuplas
 ├── Clase 5/          # Bucles: For, While, List Comprehension
-└── Clase 6/          # Diccionarios, Entornos Virtuales, Importaciones y JSON
+├── Clase 6/          # Diccionarios, Entornos Virtuales, Importaciones y JSON
+└── Clase 7/          # Bases de Datos MySQL, Variables de Entorno y Consultas SQL
 ```
 
 Cada clase contiene:
@@ -33,6 +34,8 @@ Al completar este curso, habrás aprendido:
 - ✅ **Entornos Virtuales**: Creación y uso de venv para gestionar dependencias
 - ✅ **Importaciones**: Módulos propios y externos, gestión de paquetes
 - ✅ **Trabajo con JSON**: Serialización y deserialización de datos
+- ✅ **Variables de Entorno**: Gestión de configuración con archivos .env y variables del sistema
+- ✅ **Bases de Datos**: Conexión a MySQL, ejecución de consultas SQL, manejo de resultados
 - ✅ **Programación Práctica**: Resolución de problemas reales con Python
 
 ## 🚀 Cómo Empezar
@@ -93,6 +96,11 @@ python --version
 **Temas**: Diccionarios, listas de diccionarios, entornos virtuales (venv), importaciones de módulos, trabajo con JSON
 
 - 📁 [Código en Clase](./Clase%206/)
+
+### [Clase 7: Bases de Datos MySQL y Variables de Entorno](./Clase%207/README.md)
+**Temas**: Conexión a MySQL, consultas SQL, variables de entorno (.env), manejo de errores en bases de datos
+
+- 📁 [Código en Clase](./Clase%207/)
 
 ## 🧪 Sistema de Tests
 
