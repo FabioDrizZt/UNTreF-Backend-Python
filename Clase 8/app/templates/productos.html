@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de productos</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+
+<body>
+  <h1>Listado de productos</h1>
+  <ul>
+    {% for producto in productos %}
+    <li>{{ producto }}</li>
+    {% endfor %}
+  </ul>
+</body>
+
+</html>

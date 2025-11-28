@@ -1,0 +1,35 @@
+### ============================================
+### RUTAS GENERALES
+### ============================================
+
+### Ruta principal
+GET http://127.0.0.1:5000/
+
+### Ruta de saludo
+GET http://127.0.0.1:5000/saludo
+
+### Saludo dinámico
+GET http://127.0.0.1:5000/saludo/Fabio
+
+### Saludo con otro nombre
+GET http://127.0.0.1:5000/saludo/Maria
+
+### ============================================
+### PRODUCTOS
+### ============================================
+
+### Página HTML de productos
+GET http://127.0.0.1:5000/productos
+
+### API JSON de productos
+GET http://127.0.0.1:5000/api/lista_productos
+
+### API JSON de productos
+GET http://127.0.0.1:5000/api/lista_dict_productos
+
+### ============================================
+### PRUEBAS DE ERRORES
+### ============================================
+
+### Ruta no encontrada (404)
+GET http://127.0.0.1:5000/ruta/inexistente
