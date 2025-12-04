@@ -1,0 +1,63 @@
+### Home Page
+GET http://localhost:5000/
+
+### Movies
+GET http://localhost:5000/movies
+
+### Movies by Title
+GET http://localhost:5000/movies?title=Inception
+
+### Movies by Title
+GET http://localhost:5000/movies?title=InexistenMovie
+
+### Movies by Year
+GET http://localhost:5000/movies?year=1994
+
+### Movie by ID
+GET http://localhost:5000/movies/3
+
+### Movie by ID
+GET http://localhost:5000/movies/33
+
+### POST new Movie
+POST http://localhost:5000/movies
+Content-Type: application/json
+
+{
+    "title": "The Matrix 4",
+    "year": 2023,
+    "director": "Sisters Wachowski",
+    "duration": 160,
+    "poster": "https://i.ebayimg.com/images/g/QFQAAOSwAQpfjaA6/s-l1200.jpg",
+    "genre": [
+        "Action",
+        "Sci-Fi"
+    ],
+    "rate": 3.7
+}
+
+### DELETE Movie by ID
+DELETE http://localhost:5000/movies/13
+
+### DELETE Movie by ID
+DELETE http://localhost:5000/movies/16
+
+### UPDATE Movie by ID
+PUT http://localhost:5000/movies/12
+Content-Type: application/json
+
+  {
+    "title": "Jurassic World",
+    "year": 2015,
+    "director": "Collin Trevorrow",
+    "duration": 124,
+    "poster": "https://pics.filmaffinity.com/Jurassic_World_El_renacer-952524729-large.jpg",
+    "genre": [
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "rate": 6.1
+  }
+
+### 404 Page
+GET http://localhost:5000/nonexistentpage

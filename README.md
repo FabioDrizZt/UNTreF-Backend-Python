@@ -14,7 +14,9 @@ Python/
 ├── Clase 4/          # Estructuras de Datos: Listas y Tuplas
 ├── Clase 5/          # Bucles: For, While, List Comprehension
 ├── Clase 6/          # Diccionarios, Entornos Virtuales, Importaciones y JSON
-└── Clase 7/          # Bases de Datos MySQL, Variables de Entorno y Consultas SQL
+├── Clase 7/          # Bases de Datos MySQL, Variables de Entorno y Consultas SQL
+├── Clase 8/          # Flask: Introducción a APIs REST, Rutas, Blueprints y Templates
+└── Clase 9/          # Flask: Operaciones CRUD, Query Parameters y APIs REST Completas
 ```
 
 Cada clase contiene:
@@ -36,6 +38,8 @@ Al completar este curso, habrás aprendido:
 - ✅ **Trabajo con JSON**: Serialización y deserialización de datos
 - ✅ **Variables de Entorno**: Gestión de configuración con archivos .env y variables del sistema
 - ✅ **Bases de Datos**: Conexión a MySQL, ejecución de consultas SQL, manejo de resultados
+- ✅ **Flask Framework**: Creación de APIs REST, rutas, Blueprints y renderizado de templates
+- ✅ **APIs REST**: Operaciones CRUD completas, query parameters, manejo de JSON
 - ✅ **Programación Práctica**: Resolución de problemas reales con Python
 
 ## 🚀 Cómo Empezar
@@ -101,6 +105,16 @@ python --version
 **Temas**: Conexión a MySQL, consultas SQL, variables de entorno (.env), manejo de errores en bases de datos
 
 - 📁 [Código en Clase](./Clase%207/)
+
+### [Clase 8: Flask - Introducción a APIs REST](./Clase%208/README.md)
+**Temas**: Introducción a Flask, creación de rutas, Blueprints, renderizado de templates HTML, APIs REST básicas
+
+- 📁 [Código en Clase](./Clase%208/)
+
+### [Clase 9: Flask - Operaciones CRUD Completas](./Clase%209/README.md)
+**Temas**: Operaciones CRUD (Create, Read, Update, Delete), query parameters, manejo de JSON, APIs REST completas
+
+- 📁 [Código en Clase](./Clase%209/)
 
 ## 🧪 Sistema de Tests
 
