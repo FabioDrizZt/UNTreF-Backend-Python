@@ -1,0 +1,248 @@
+### Variables de configuración
+@host = http://localhost:3000
+@actor_id = 1
+@film_id = 1
+
+### ============================================
+### ENDPOINTS GENERALES
+### ============================================
+
+### Hola mundo - Endpoint de bienvenida
+GET {{host}}/
+
+### ============================================
+### ENDPOINTS DE ACTORES
+### ============================================
+
+### Obtener todos los actores
+GET {{host}}/actors
+
+### Obtener un actor por ID
+GET {{host}}/actors/{{actor_id}}
+
+### Crear un nuevo actor
+POST {{host}}/actors
+Content-Type: application/json
+
+{
+  "first_name": "Tom",
+  "last_name": "Hanks"
+}
+
+### Crear un actor (ejemplo alternativo)
+POST {{host}}/actors
+Content-Type: application/json
+
+{
+  "first_name": "Leonardo",
+  "last_name": "DiCaprio"
+}
+
+### Crear varios actores en bloque
+POST {{host}}/actors/bulk
+Content-Type: application/json
+
+[
+  {
+    "first_name": "Scarlett",
+    "last_name": "Johansson"
+  },
+  {
+    "first_name": "Ricardo",
+    "last_name": "Darín"
+  },
+  {
+    "first_name": "Guillermo",
+    "last_name": "Francella"
+  },
+  {
+    "first_name": "Natalia",
+    "last_name": "Oreiro"
+  }
+]
+
+### Borrar un actor
+DELETE {{host}}/actors/201
+
+### ============================================
+### ENDPOINTS DE PELÍCULAS
+### ============================================
+
+### Obtener todas las películas
+GET {{host}}/films
+
+### Obtener una película por ID
+GET {{host}}/films/{{film_id}}
+
+### Crear una nueva película (mínimo requerido)
+POST {{host}}/films
+Content-Type: application/json
+
+{
+  "title": "Forrest Gump"
+}
+
+### Crear una película completa
+POST {{host}}/films
+Content-Type: application/json
+
+{
+  "title": "Forrest Gump", 
+  "description": "Forrest Gump, un joven sureño, tenaz e inocente, es protagonista de acontecimientos cruciales en la historia de los Estados Unidos.", 
+  "release_year": 1994,
+  "language_id": 1
+}
+
+### Crear otra película (ejemplo)
+POST {{host}}/films
+Content-Type: application/json
+
+{
+  "title": "El Secreto de sus Ojos",
+  "description": "Un thriller argentino sobre un caso de asesinato sin resolver.",
+  "release_year": 2009,
+  "language_id": 1
+}
+
+### Actualizar una película (actualizar solo título)
+PUT {{host}}/films/1007
+Content-Type: application/json
+
+{
+  "title": "Forrest Gump - Edición Especial"
+}
+
+### Actualizar una película (actualizar múltiples campos)
+PUT {{host}}/films/1007
+Content-Type: application/json
+
+{
+  "title": "Forrest Gump - Updated",
+  "description": "Un joven sureño, tenaz e inocente, vive momentos cruciales de la historia de EE.UU.",
+  "release_year": 1995
+}
+
+### Actualizar solo la descripción
+PUT {{host}}/films/{{film_id}}
+Content-Type: application/json
+
+{
+  "description": "Nueva descripción actualizada de la película."
+}
+
+### Eliminar una película
+DELETE {{host}}/films/{{film_id}}
+
+### Eliminar otra película (ejemplo)
+DELETE {{host}}/films/1006
+
+### ============================================
+### ENDPOINTS DE RELACIONES ACTOR-PELÍCULA
+### ============================================
+
+### Asociar un actor a una película
+POST {{host}}/actors/{{actor_id}}/films/{{film_id}}
+
+### Asociar actor específico a película específica
+POST {{host}}/actors/239/films/1028
+
+### Asociar otro actor a otra película
+POST {{host}}/actors/1/films/1
+
+### Obtener todas las películas con sus actores asociados
+GET {{host}}/films/actors
+
+### Obtener los actores de una película específica
+GET {{host}}/films/{{film_id}}/actors
+
+### Obtener actores de película específica (ejemplo)
+GET {{host}}/films/500/actors
+
+### Obtener actores de otra película
+GET {{host}}/films/1/actors
+
+### ============================================
+### CASOS DE PRUEBA - VALIDACIONES Y ERRORES
+### ============================================
+
+### Intentar crear actor sin campos requeridos (debe fallar)
+POST {{host}}/actors
+Content-Type: application/json
+
+{
+  "first_name": "Solo nombre"
+}
+
+### Intentar crear actor sin datos (debe fallar)
+POST {{host}}/actors
+Content-Type: application/json
+
+{}
+
+### Intentar crear película sin título (debe fallar)
+POST {{host}}/films
+Content-Type: application/json
+
+{
+  "description": "Sin título"
+}
+
+### Intentar actualizar película inexistente (debe retornar 404)
+PUT {{host}}/films/99999
+Content-Type: application/json
+
+{
+  "title": "Película que no existe"
+}
+
+### Intentar eliminar película inexistente (debe retornar 404)
+DELETE {{host}}/films/99999
+
+### Intentar asociar actor inexistente (debe retornar 404)
+POST {{host}}/actors/99999/films/1
+
+### Intentar asociar película inexistente (debe retornar 404)
+POST {{host}}/actors/1/films/99999
+
+### Obtener actores de película inexistente (debe retornar 404)
+GET {{host}}/films/99999/actors
+
+### Intentar crear actores en bloque con formato incorrecto (debe fallar)
+POST {{host}}/actors/bulk
+Content-Type: application/json
+
+{
+  "first_name": "Formato incorrecto"
+}
+
+### ============================================
+### FLUJO COMPLETO DE EJEMPLO
+### ============================================
+
+### Paso 1: Crear un nuevo actor
+POST {{host}}/actors
+Content-Type: application/json
+
+{
+  "first_name": "Ejemplo",
+  "last_name": "Usuario"
+}
+
+### Paso 2: Crear una nueva película
+POST {{host}}/films
+Content-Type: application/json
+
+{
+  "title": "Película de Ejemplo",
+  "description": "Esta es una película creada para pruebas.",
+  "release_year": 2024
+}
+
+### Paso 3: Asociar el actor a la película (usar IDs del paso 1 y 2)
+POST {{host}}/actors/ID_DEL_ACTOR/films/ID_DE_LA_PELICULA
+
+### Paso 4: Verificar la asociación
+GET {{host}}/films/ID_DE_LA_PELICULA/actors
+
+### Paso 5: Ver todas las películas con actores
+GET {{host}}/films/actors

@@ -1,0 +1,10 @@
+# Flask y extensiones
+Flask>=3.0.0
+Flask-SQLAlchemy>=3.0.0
+
+# Base de datos
+pymysql>=1.0.0
+
+# Variables de entorno
+python-dotenv>=1.0.0
+

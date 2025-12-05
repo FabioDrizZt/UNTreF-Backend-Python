@@ -16,7 +16,8 @@ Python/
 ├── Clase 6/          # Diccionarios, Entornos Virtuales, Importaciones y JSON
 ├── Clase 7/          # Bases de Datos MySQL, Variables de Entorno y Consultas SQL
 ├── Clase 8/          # Flask: Introducción a APIs REST, Rutas, Blueprints y Templates
-└── Clase 9/          # Flask: Operaciones CRUD, Query Parameters y APIs REST Completas
+├── Clase 9/          # Flask: Operaciones CRUD, Query Parameters y APIs REST Completas
+└── Clase 10/         # Flask + SQLAlchemy: ORMs, Relaciones Many-to-Many y APIs Complejas
 ```
 
 Cada clase contiene:
@@ -40,6 +41,8 @@ Al completar este curso, habrás aprendido:
 - ✅ **Bases de Datos**: Conexión a MySQL, ejecución de consultas SQL, manejo de resultados
 - ✅ **Flask Framework**: Creación de APIs REST, rutas, Blueprints y renderizado de templates
 - ✅ **APIs REST**: Operaciones CRUD completas, query parameters, manejo de JSON
+- ✅ **SQLAlchemy ORM**: Modelado de datos, relaciones entre tablas, consultas orientadas a objetos
+- ✅ **Relaciones Many-to-Many**: Implementación de relaciones complejas entre entidades
 - ✅ **Programación Práctica**: Resolución de problemas reales con Python
 
 ## 🚀 Cómo Empezar
@@ -115,6 +118,11 @@ python --version
 **Temas**: Operaciones CRUD (Create, Read, Update, Delete), query parameters, manejo de JSON, APIs REST completas
 
 - 📁 [Código en Clase](./Clase%209/)
+
+### [Clase 10: Flask + SQLAlchemy - ORMs y Relaciones](./Clase%2010/README.md)
+**Temas**: SQLAlchemy ORM, modelos de datos, relaciones many-to-many, APIs complejas con bases de datos reales
+
+- 📁 [Código en Clase](./Clase%2010/)
 
 ## 🧪 Sistema de Tests
 
